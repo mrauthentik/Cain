@@ -1,9 +1,12 @@
+import { useEffect } from "react"
+import { fetchUsers } from "../services/userService"
 
-function Home(){
-    return (
-        <div>
-            <h1>Welcome to Home</h1>
-        </div>
-    )
+
+const  Home=()=>{
+    useEffect(()=> {
+        fetchUsers().then((data)=> console.log(data))
+    }, [])
+
+    return <div> Supabase Connected</div>
 }
 export default Home
