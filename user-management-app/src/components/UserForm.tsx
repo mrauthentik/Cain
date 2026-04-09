@@ -32,13 +32,13 @@ const UserForm = ({ onSuccess }: UserFormProps) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-white p-6 rounded-2xl shadow-md space-y-4"
+      className="bg-white p-6 rounded-2xl shadow-md space-y-5"
     >
       <div>
         <input
           {...register('name')}
           placeholder="Name"
-          className="w-full border p-3 rounded-md"
+          className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
         />
         {errors.name && (
           <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
@@ -50,7 +50,7 @@ const UserForm = ({ onSuccess }: UserFormProps) => {
         type='email'
           {...register('email')}
           placeholder="Email"
-          className="w-full border p-3 rounded-md"
+          className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
         />
         {errors.email && (
           <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -61,7 +61,7 @@ const UserForm = ({ onSuccess }: UserFormProps) => {
         <input
           {...register('role')}
           placeholder="Role"
-          className="w-full border p-3 rounded-md"
+          className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
         />
         {errors.role && (
           <p className="text-red-500 text-sm mt-1">{errors.role.message}</p>
@@ -71,7 +71,7 @@ const UserForm = ({ onSuccess }: UserFormProps) => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-black text-white py-3 rounded-md"
+        className="w-full bg-black text-white py-3 rounded-lg hover:opacity-90 transition"
       >
         {isSubmitting ? 'Submitting...' : 'Submit'}
       </button>
