@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# User Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A production-ready user management application built with modern frontend architecture and integrated with Supabase for real-time data persistence. The project demonstrates clean component structure, typed data handling, form validation, API abstraction, and responsive UI design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Tech Stack
 
-## React Compiler
+* **Frontend:** React + TypeScript + Vite
+* **Styling:** Tailwind CSS
+* **Backend / Database:** Supabase (PostgreSQL + REST API)
+* **Form Handling:** React Hook Form
+* **Validation:** Zod
+* **Notifications:** react-hot-toast
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Add new users with **Name, Email, and Role**
+* Validate form inputs before submission
+* Store records securely in Supabase
+* Fetch and display users in a dashboard table
+* Show creation timestamps in readable format
+* Responsive layout for desktop and mobile
+* Error and success feedback through toast notifications
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🏗 Architecture
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+The project follows a **service-layer architecture** for maintainability:
+
+* **Components Layer** → UI rendering and interaction
+* **Schema Layer** → Validation logic using Zod
+* **Service Layer** → Supabase queries isolated from UI
+* **Types Layer** → Shared TypeScript interfaces
+
+This separation improves scalability, readability, and makes future features such as edit, delete, filtering, and pagination easier to implement.
+
+---
+
+## 📁 Folder Structure
+
+```bash
+src/
+├── components/
+├── services/
+├── schemas/
+├── types/
+├── lib/
+├── App.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Setup
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/mrauthentik/cain
+cd user-management-dashboard
+npm install
+npm run dev
 ```
+
+Create `.env` file:
+
+```env
+VITE_SUPABASE_URL=your_project_url
+VITE_SUPABASE_ANON_KEY=your_anon_key
+```
+
+---
+
+## 🧠 Engineering Decisions
+
+* TypeScript used for strong type safety
+* Tailwind CSS chosen for fast scalable styling
+* Supabase selected for backend simplicity and instant API access
+* Form validation handled before database submission to reduce invalid writes
+* Defensive UI rendering used for null-safe date handling
+
+---
+
+## 🔮 Link to Production
+ 
+https://cain-henna.vercel.app/
+
+---
+
+
