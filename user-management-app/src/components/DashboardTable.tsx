@@ -34,7 +34,7 @@ const DashboardTable = () => {
                 <tbody>
                   {data.map((user: any) => (
                     <tr key={user.id} className="border-b">
-                      <td className="py-3 pr-8">{new Date(user.created_at!).toLocaleDateString()}</td>
+                      <td className="py-3 pr-8">{new Date(user.create_at).toLocaleDateString()}</td>
                       <td className="py-3 pr-8">{user.name}</td>
                       <td className="py-3 pr-8">{user.email}</td>
                       <td className="py-3 pr-8">{user.role}</td>

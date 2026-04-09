@@ -28,7 +28,7 @@ const UserForm = ({ onSuccess }: UserFormProps) => {
       toast.error(error.message)
     }
   }
-
+  console.log(errors)
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -71,6 +71,7 @@ const UserForm = ({ onSuccess }: UserFormProps) => {
       <button
         type="submit"
         disabled={isSubmitting}
+        onClick={()=>console.log('button is being clicked')}
         className="w-full bg-black text-white py-3 rounded-lg hover:opacity-90 transition"
       >
         {isSubmitting ? 'Submitting...' : 'Submit'}
