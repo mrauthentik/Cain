@@ -20,22 +20,22 @@ const DashboardTable = () => {
     }
 
     return (
-        <div className="bg-white p-6 rounded-xl shadow-md mt-6 overflow-x-auto">
+        <div className="bg-white p-6 rounded-2xl shadow-md mt-6 overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
                   <tr className="border-b">
-                    <th className="py-3">Name</th>
-                    <th className="py-3">Email</th>
-                    <th className="py-3">Role</th>
+                    <th className="py-3 pr-8">Name</th>
+                    <th className="py-3 pr-8">Email</th>
+                    <th className="py-3 pr-8">Role</th>
                   </tr>
                 </thead>
         
                 <tbody>
                   {data.map((user: any) => (
                     <tr key={user.id} className="border-b">
-                      <td className="py-3">{user.name}</td>
-                      <td className="py-3">{user.email}</td>
-                      <td className="py-3">{user.role}</td>
+                      <td className="py-3 pr-8">{user.name}</td>
+                      <td className="py-3 pr-8">{user.email}</td>
+                      <td className="py-3 pr-8">{user.role}</td>
                     </tr>
                   ))}
                 </tbody>
