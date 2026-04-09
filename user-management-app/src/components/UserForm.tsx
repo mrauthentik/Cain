@@ -22,8 +22,9 @@ const UserForm = ({ onSuccess }: UserFormProps) => {
       await createUser(data)
       reset()
       onSuccess()
-    } catch (error) {
+    } catch (error: any) {
       console.error(error)
+      alert(error.message)
     }
   }
 
@@ -45,6 +46,7 @@ const UserForm = ({ onSuccess }: UserFormProps) => {
 
       <div>
         <input
+        type='email'
           {...register('email')}
           placeholder="Email"
           className="w-full border p-3 rounded-md"
