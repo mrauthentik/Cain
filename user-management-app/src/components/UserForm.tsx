@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { userSchema, type UserFormData } from '../schemas/userSchema'
 import { createUser } from '../services/userService'
-
+import toast from 'react-hot-toast'
 interface UserFormProps {
   onSuccess: () => void
 }
@@ -20,18 +20,19 @@ const UserForm = ({ onSuccess }: UserFormProps) => {
   const onSubmit = async (data: UserFormData) => {
     try {
       await createUser(data)
+      toast.success('User submitted successfully!')
       reset()
       onSuccess()
     } catch (error: any) {
       console.error(error)
-      alert(error.message)
+      toast.error(error.message)
     }
   }
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-white p-6 rounded-xl shadow-md space-y-4"
+      className="bg-white p-6 rounded-2xl shadow-md space-y-4"
     >
       <div>
         <input
