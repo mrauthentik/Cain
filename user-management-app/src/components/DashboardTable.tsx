@@ -24,6 +24,7 @@ const DashboardTable = () => {
               <table className="w-full text-left">
                 <thead>
                   <tr className="border-b">
+                    <th className="py-3 pr-8">Created</th>
                     <th className="py-3 pr-8">Name</th>
                     <th className="py-3 pr-8">Email</th>
                     <th className="py-3 pr-8">Role</th>
@@ -33,6 +34,7 @@ const DashboardTable = () => {
                 <tbody>
                   {data.map((user: any) => (
                     <tr key={user.id} className="border-b">
+                      <td className="py-3 pr-8">{new Date(user.created_at!).toLocaleDateString()}</td>
                       <td className="py-3 pr-8">{user.name}</td>
                       <td className="py-3 pr-8">{user.email}</td>
                       <td className="py-3 pr-8">{user.role}</td>
